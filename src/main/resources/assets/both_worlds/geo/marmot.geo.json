@@ -1,0 +1,82 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.marmot",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "Marmot",
+					"pivot": [0, 9, -7]
+				},
+				{
+					"name": "Body",
+					"parent": "Marmot",
+					"pivot": [5, 19, -16],
+					"cubes": [
+						{"origin": [-5, 3, -9], "size": [10, 10, 17], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "Head",
+					"parent": "Marmot",
+					"pivot": [0, 11, -10],
+					"cubes": [
+						{"origin": [-3, 9, -19], "size": [6, 6, 10], "uv": [44, 27]},
+						{"origin": [-1, 8, -19], "size": [2, 1, 0], "uv": [54, 4]}
+					]
+				},
+				{
+					"name": "Tail",
+					"parent": "Marmot",
+					"pivot": [0, 21, 1],
+					"cubes": [
+						{"origin": [-2.5, 3, 8], "size": [5, 2, 17], "uv": [0, 27]}
+					]
+				},
+				{
+					"name": "LeftLeg",
+					"parent": "Marmot",
+					"pivot": [-3, 5, -4],
+					"cubes": [
+						{"origin": [-4.5, 0, -6], "size": [4, 6, 3], "uv": [0, 46]},
+						{"origin": [-5, 0.1, -7], "size": [5, 0, 1], "uv": [54, 0]}
+					]
+				},
+				{
+					"name": "RightLeg",
+					"parent": "Marmot",
+					"pivot": [4, 5, -4],
+					"cubes": [
+						{"origin": [0.5, 0, -6], "size": [4, 6, 3], "uv": [44, 43]},
+						{"origin": [0, 0.1, -7], "size": [5, 0, 1], "uv": [54, 1]}
+					]
+				},
+				{
+					"name": "LeftBackLeg",
+					"parent": "Marmot",
+					"pivot": [-1, 5, 5],
+					"cubes": [
+						{"origin": [-4.5, 0, 4], "size": [4, 6, 3], "uv": [14, 46]},
+						{"origin": [-5, 0.1, 3], "size": [5, 0, 1], "uv": [54, 3]}
+					]
+				},
+				{
+					"name": "RightBackLeg",
+					"parent": "Marmot",
+					"pivot": [4, 5, 5],
+					"cubes": [
+						{"origin": [0.5, 0, 4], "size": [4, 6, 3], "uv": [28, 46]},
+						{"origin": [0, 0.1, 3], "size": [5, 0, 1], "uv": [54, 2]}
+					]
+				}
+			]
+		}
+	]
+}

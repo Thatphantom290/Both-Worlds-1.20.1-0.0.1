@@ -1,0 +1,23 @@
+{
+  "marmot_death": {
+    "sounds": [
+      "littlemarmots:marmot_death"
+    ]
+  },
+  "marmot_hurt": {
+    "sounds": [
+      "littlemarmots:marmot_hurt1",
+      "littlemarmots:marmot_hurt2"
+    ]
+  },
+  "marmot_happy": {
+    "sounds": [
+      "littlemarmots:marmot_happy"
+    ]
+  },
+  "marmot_idle": {
+    "sounds": [
+      "littlemarmots:marmot_idle"
+    ]
+  }
+}

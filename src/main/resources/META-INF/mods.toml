@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[10,)"
+license="MIT"
+
+[[mods]]
+modId="both_worlds"
+version="1.20.1-0.0.1"
+displayName="Both Worlds"
+description='''I present you... *drums* Both Worlds!!! This mod adds new mobs and animals in wave themed updates'''
+logoFile="assets/both_worlds/modicon"
+authors="thatgrey/phantomguy, blob, trafficone, pikmin, oregano and slime."
+
+[[dependencies.both_worlds]]
+modId="forge"
+mandatory=true
+versionRange="[10,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.both_worlds]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.both_worlds]]
+modId="geckolib"
+mandatory=true
+versionRange="[4.7.2,)"
+ordering="NONE"
+side="CLIENT"

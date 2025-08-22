@@ -1,0 +1,25 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:plains",
+    "minecraft:meadow",
+    "minecraft:taiga",
+    "minecraft:snowy_taiga",
+    "minecraft:windswept_hills",
+    "minecraft:windswept_gravelly_hills",
+    "minecraft:snowy_slopes",
+    "minecraft:jagged_peaks",
+    "minecraft:frozen_peaks",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau",
+    "minecraft:windswept_forest"
+  ],
+  "spawners": [
+    {
+      "type": "both_worlds:marmot",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4
+    }
+  ]
+}

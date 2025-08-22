@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.thatgrey.both_worlds.mixins",
+  "compatibillityLevel": "JAVA_17",
+  "refmap": "mixin.thatgrey.both_worlds:refmap.json",
+  "mixins": [],
+  "client": [],
+  "server": []
+}

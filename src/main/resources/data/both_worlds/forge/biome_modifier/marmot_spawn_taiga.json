@@ -1,0 +1,16 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:taiga",
+    "minecraft:snowy_taiga",
+    "minecraft:windswept_forest"
+  ],
+  "spawners": [
+    {
+      "type": "littlemarmots:marmot",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    }
+  ]
+}
