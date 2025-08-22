@@ -116,7 +116,8 @@ public class MarmotEntity extends Animal implements GeoEntity {
 
         if (biome.is(Biomes.PLAINS) || biome.is(Biomes.MEADOW)) {
             this.setVariant(Variant.BROWN.getId());
-        } else if (biome.is(Biomes.TAIGA) || biome.is(Biomes.SNOWY_TAIGA) || biome.is(Biomes.WINDSWEPT_FOREST)) {
+        } else if (biome.is(Biomes.TAIGA) || biome.is(Biomes.SNOWY_TAIGA) || biome.is(Biomes.WINDSWEPT_FOREST) || biome.is(Biomes.OLD_GROWTH_PINE_TAIGA)
+                || biome.is(Biomes.OLD_GROWTH_SPRUCE_TAIGA)) {
             this.setVariant(Variant.BLACK.getId());
         } else if (biome.is(Biomes.WINDSWEPT_HILLS) || biome.is(Biomes.WINDSWEPT_GRAVELLY_HILLS) ||
                 biome.is(Biomes.SNOWY_SLOPES) || biome.is(Biomes.JAGGED_PEAKS) || biome.is(Biomes.FROZEN_PEAKS)) {

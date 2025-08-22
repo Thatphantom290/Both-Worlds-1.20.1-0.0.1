@@ -3,7 +3,9 @@
   "biomes": [
     "minecraft:taiga",
     "minecraft:snowy_taiga",
-    "minecraft:windswept_forest"
+    "minecraft:windswept_forest",
+    "minecraft:old_growth_spruce_taiga",
+    "minecraft:old_growth_pine_taiga"
   ],
   "spawners": [
     {
