@@ -386,7 +386,7 @@
 					"position": {
 						"0.0": {
 							"post": {
-								"vector": [0, -3, -8]
+								"vector": [0, -2, 3]
 							},
 							"lerp_mode": "catmullrom"
 						}

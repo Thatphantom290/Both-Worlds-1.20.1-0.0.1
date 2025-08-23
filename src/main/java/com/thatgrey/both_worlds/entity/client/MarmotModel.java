@@ -3,11 +3,12 @@ package com.thatgrey.both_worlds.entity.client;
 import com.thatgrey.both_worlds.Both_Worlds;
 import com.thatgrey.both_worlds.entity.custom.MarmotEntity;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.player.Player;
 import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MarmotModel extends GeoModel<MarmotEntity> {
 
@@ -18,12 +19,37 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
 
     @Override
     public ResourceLocation getTextureResource(MarmotEntity entity) {
-        return switch (entity.getVariant()) {
-            case 1 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_grey.png");
-            case 2 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_white.png");
-            case 3 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_beige.png");
-            default -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot.png");
-        };
+        MarmotEntity.Variant v = MarmotEntity.Variant.byId(entity.getVariant());
+
+        List<String> tries = new ArrayList<>();
+        switch (v) {
+            case BROWN:
+                tries.add("textures/entity/marmot/marmot.png");
+                tries.add("textures/entity/marmot/marmot_brown.png");
+                tries.add("textures/entity/marmot/marmot-brown.png");
+                break;
+            case BEIGE:
+                tries.add("textures/entity/marmot/marmot_beige.png");
+                break;
+            case GREY:
+                tries.add("textures/entity/marmot/marmot_grey.png");
+                break;
+            case WHITE:
+                tries.add("textures/entity/marmot/marmot_white.png");
+                break;
+            default:
+                tries.add("textures/entity/marmot/marmot.png");
+        }
+
+        System.out.println("[Both_Worlds] getTextureResource called variant=" + v + " (id=" + entity.getVariant() + ")");
+
+        for (String path : tries) {
+            ResourceLocation rl = new ResourceLocation(Both_Worlds.MODID, path);
+            System.out.println("[Both_Worlds] tryTexture -> " + rl);
+            return rl;
+        }
+
+        return new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot.png");
     }
 
     @Override
@@ -44,14 +70,14 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
                 body.setScaleY(0.5F);
                 body.setScaleZ(0.5F);
                 body.setPosY(-1.5F);
-                body.setPosZ(3.0F);
+                body.setPosZ(-4.0F);
             }
             if (head != null) {
                 head.setScaleX(1.1F);
                 head.setScaleY(1.1F);
                 head.setScaleZ(1.1F);
                 head.setPosY(-1.0F);
-                head.setPosZ(2.5F);
+                head.setPosZ(0.0F);
             }
         } else {
             if (body != null) {
@@ -68,33 +94,6 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
                 head.setPosY(0F);
                 head.setPosZ(0F);
             }
-        }
-
-        if (head == null) return;
-
-        Player player = animatable.level().getNearestPlayer(animatable, 8);
-        if (player != null) {
-            double dx = player.getX() - animatable.getX();
-            double dz = player.getZ() - animatable.getZ();
-            double dy;
-
-            if (animatable.isSitting()) {
-                dy = player.getEyeY() - (animatable.getY() + 0);
-            } else {
-                dy = player.getEyeY() - (animatable.getY() + animatable.getEyeHeight());
-            }
-
-            float yaw = (float) Math.toDegrees(Math.atan2(dz, dx)) - animatable.getYRot();
-            float pitch = (float) -Math.toDegrees(Math.atan2(dy, Math.sqrt(dx * dx + dz * dz)));
-
-            yaw = Mth.clamp(yaw, -42, 42);
-            pitch = Mth.clamp(pitch, -42, 42);
-
-            head.setRotY((float) Math.toRadians(yaw));
-            head.setRotX((float) Math.toRadians(pitch));
-        } else {
-            head.setRotY(0);
-            head.setRotX(0);
         }
     }
 }

@@ -64,9 +64,8 @@ public class MarmotEntity extends Animal implements GeoEntity {
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.5D, Ingredient.of(Items.HANGING_ROOTS), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 0.6D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.25D));
-        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0f));
-        this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(8, new RandomSitGoal(this));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(7, new RandomSitGoal(this));
     }
 
     public void setSitting(boolean sitting) {
@@ -93,7 +92,7 @@ public class MarmotEntity extends Animal implements GeoEntity {
     }
 
     public enum Variant {
-        BROWN(0), GREY(1), WHITE(2), BEIGE(3);
+        BROWN(0), BEIGE(1), GREY(2), WHITE(3);
 
         private final int id;
         Variant(int id) { this.id = id; }
