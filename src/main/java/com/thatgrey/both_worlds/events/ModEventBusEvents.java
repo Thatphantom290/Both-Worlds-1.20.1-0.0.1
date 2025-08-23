@@ -1,4 +1,4 @@
-package com.thatgrey.both_worlds.event;
+package com.thatgrey.both_worlds.events;
 
 import com.thatgrey.both_worlds.Both_Worlds;
 import com.thatgrey.both_worlds.entity.ModEntities;
