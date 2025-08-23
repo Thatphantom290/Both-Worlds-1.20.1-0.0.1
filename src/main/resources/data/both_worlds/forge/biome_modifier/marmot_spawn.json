@@ -12,9 +12,7 @@
     "minecraft:frozen_peaks",
     "minecraft:savanna",
     "minecraft:savanna_plateau",
-    "minecraft:windswept_forest",
-    "minecraft:old_growth_spruce_taiga",
-    "minecraft:old_growth_pine_taiga"
+    "minecraft:windswept_forest"
   ],
   "spawners": [
     {

@@ -93,7 +93,7 @@ public class MarmotEntity extends Animal implements GeoEntity {
     }
 
     public enum Variant {
-        BROWN(0), BLACK(1), GREY(2), WHITE(3), BEIGE(4);
+        BROWN(0), GREY(1), WHITE(2), BEIGE(3);
 
         private final int id;
         Variant(int id) { this.id = id; }
@@ -116,11 +116,10 @@ public class MarmotEntity extends Animal implements GeoEntity {
 
         if (biome.is(Biomes.PLAINS) || biome.is(Biomes.MEADOW)) {
             this.setVariant(Variant.BROWN.getId());
-        } else if (biome.is(Biomes.TAIGA) || biome.is(Biomes.SNOWY_TAIGA) || biome.is(Biomes.WINDSWEPT_FOREST) || biome.is(Biomes.OLD_GROWTH_PINE_TAIGA)
-                || biome.is(Biomes.OLD_GROWTH_SPRUCE_TAIGA)) {
-            this.setVariant(Variant.BLACK.getId());
-        } else if (biome.is(Biomes.WINDSWEPT_HILLS) || biome.is(Biomes.WINDSWEPT_GRAVELLY_HILLS) ||
-                biome.is(Biomes.SNOWY_SLOPES) || biome.is(Biomes.JAGGED_PEAKS) || biome.is(Biomes.FROZEN_PEAKS)) {
+        } else if (biome.is(Biomes.TAIGA) || biome.is(Biomes.SNOWY_TAIGA)) {
+            this.setVariant(Variant.GREY.getId());
+        } else if (biome.is(Biomes.WINDSWEPT_HILLS) || biome.is(Biomes.WINDSWEPT_GRAVELLY_HILLS)
+                || biome.is(Biomes.SNOWY_SLOPES) || biome.is(Biomes.JAGGED_PEAKS) || biome.is(Biomes.FROZEN_PEAKS)) {
             this.setVariant(world.getRandom().nextFloat() < 0.1F ? Variant.WHITE.getId() : Variant.GREY.getId());
         } else if (biome.is(Biomes.SAVANNA) || biome.is(Biomes.SAVANNA_PLATEAU)) {
             this.setVariant(Variant.BEIGE.getId());
@@ -144,9 +143,9 @@ public class MarmotEntity extends Animal implements GeoEntity {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 5, event -> {
-            if (isSitting()) return event.setAndContinue(ModAnimations.SIT);
-            if (event.isMoving()) return event.setAndContinue(ModAnimations.WALK);
-            return event.setAndContinue(ModAnimations.IDLE);
+            if (isSitting()) return event.setAndContinue(ModAnimations.MARMOT_SIT);
+            if (event.isMoving()) return event.setAndContinue(ModAnimations.MARMOT_WALK);
+            return event.setAndContinue(ModAnimations.MARMOT_IDLE);
         }));
     }
 
@@ -202,6 +201,7 @@ public class MarmotEntity extends Animal implements GeoEntity {
         }
         return super.mobInteract(player, hand);
     }
+
     @Override
     public EntityDimensions getDimensions(Pose pose) {
         EntityDimensions original = super.getDimensions(pose);

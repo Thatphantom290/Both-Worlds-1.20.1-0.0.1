@@ -21,8 +21,7 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
         return switch (entity.getVariant()) {
             case 1 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_grey.png");
             case 2 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_white.png");
-            case 3 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_black.png");
-            case 4 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_beige.png");
+            case 3 -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot_beige.png");
             default -> new ResourceLocation(Both_Worlds.MODID, "textures/entity/marmot/marmot.png");
         };
     }
@@ -41,33 +40,33 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
 
         if (animatable.isBaby()) {
             if (body != null) {
-                body.setScaleX(0.6F);
-                body.setScaleY(0.6F);
-                body.setScaleZ(0.6F);
-                body.setPosY(-5.0F);
-                body.setPosZ(-2.0F);
+                body.setScaleX(0.8F);
+                body.setScaleY(0.8F);
+                body.setScaleZ(0.8F);
+                body.setPosY(-3.5F);
+                body.setPosZ(2.0F);
             }
             if (head != null) {
-                head.setScaleX(1.0F);
-                head.setScaleY(1.0F);
-                head.setScaleZ(1.0F);
-                head.setPosY(-5.0F);
-                head.setPosZ(-2.0F);
+                head.setScaleX(1.5F);
+                head.setScaleY(1.5F);
+                head.setScaleZ(1.5F);
+                head.setPosY(-4.0F);
+                head.setPosZ(1.5F);
             }
         } else {
             if (body != null) {
                 body.setScaleX(1.0F);
                 body.setScaleY(1.0F);
                 body.setScaleZ(1.0F);
-                body.setPosY(0.0F);
-                body.setPosZ(0.0F);
+                body.setPosY(0F);
+                body.setPosZ(0F);
             }
             if (head != null) {
                 head.setScaleX(1.0F);
                 head.setScaleY(1.0F);
                 head.setScaleZ(1.0F);
-                head.setPosY(0.0F);
-                head.setPosZ(0.0F);
+                head.setPosY(0F);
+                head.setPosZ(0F);
             }
         }
 
@@ -80,7 +79,7 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
             double dy;
 
             if (animatable.isSitting()) {
-                dy = player.getEyeY() - (animatable.getY() + 0.2);
+                dy = player.getEyeY() - (animatable.getY() + 0);
             } else {
                 dy = player.getEyeY() - (animatable.getY() + animatable.getEyeHeight());
             }
@@ -88,8 +87,8 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
             float yaw = (float) Math.toDegrees(Math.atan2(dz, dx)) - animatable.getYRot();
             float pitch = (float) -Math.toDegrees(Math.atan2(dy, Math.sqrt(dx * dx + dz * dz)));
 
-            yaw = Mth.clamp(yaw, 45, 40);
-            pitch = Mth.clamp(pitch, 45, 40);
+            yaw = Mth.clamp(yaw, -42, 42);
+            pitch = Mth.clamp(pitch, -42, 42);
 
             head.setRotY((float) Math.toRadians(yaw));
             head.setRotX((float) Math.toRadians(pitch));
