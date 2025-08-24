@@ -36,7 +36,7 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class MarmotEntity extends Animal implements GeoEntity {
+public class MarmotEntity extends Animal implements GeoEntity, Sittable {
 
     private static final EntityDataAccessor<Boolean> DATA_SITTING =
             SynchedEntityData.defineId(MarmotEntity.class, EntityDataSerializers.BOOLEAN);
@@ -58,14 +58,14 @@ public class MarmotEntity extends Animal implements GeoEntity {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new PanicGoal(this, 0.25D));
+        this.goalSelector.addGoal(0, new PanicGoal(this, 0.45D));
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.150D));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.5D, Ingredient.of(Items.HANGING_ROOTS), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 0.6D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.25D));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(7, new RandomSitGoal(this));
+        this.goalSelector.addGoal(7, new RandomSitGoal<>(this));
     }
 
     public void setSitting(boolean sitting) {
@@ -154,11 +154,11 @@ public class MarmotEntity extends Animal implements GeoEntity {
     }
 
     @Override
-    public AgeableMob getBreedOffspring(ServerLevel serverWorld, AgeableMob mate) {
-        MarmotEntity baby = ModEntities.MARMOT.get().create(serverWorld);
-        if (baby != null) {
-            baby.setBaby(true);
-        }
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob partner) {
+        Entity babyEntity = this.getType().create(level);
+        if (!(babyEntity instanceof MarmotEntity)) return null;
+        MarmotEntity baby = (MarmotEntity) babyEntity;
+        baby.setBaby(true);
         return baby;
     }
 

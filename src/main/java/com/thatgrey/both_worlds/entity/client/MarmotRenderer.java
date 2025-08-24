@@ -12,7 +12,7 @@ public class MarmotRenderer extends GeoEntityRenderer<MarmotEntity> {
 
     public MarmotRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new MarmotModel());
-        this.shadowRadius = 0.3f;
+        this.shadowRadius = 0.6f;
     }
 
     @Override
