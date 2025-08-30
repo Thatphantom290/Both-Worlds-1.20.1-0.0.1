@@ -24,6 +24,9 @@ public class ModItems {
                     () -> new ForgeSpawnEggItem(ModEntities.MARMOT, 0x62422d, 0x9f7962,
                             new Item.Properties()));
 
+    public static final RegistryObject<Item> LIEMOND = ITEMS.register("liemond",
+            () -> new Item(new Item.Properties()));
+
     public static void register(net.minecraftforge.eventbus.api.IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

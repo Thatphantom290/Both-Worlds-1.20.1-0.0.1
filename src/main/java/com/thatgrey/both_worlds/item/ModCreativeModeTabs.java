@@ -16,11 +16,12 @@ public class ModCreativeModeTabs {
 
     public static final RegistryObject<CreativeModeTab> BOTH_WORLDS_TAB = CREATIVE_MODE_TABS.register("both_worlds_tab",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ModItems.MARMOT_SPAWN_EGG.get()))
+                    .icon(() -> new ItemStack(ModItems.LIEMOND.get()))
                     .title(Component.translatable("creativetab.both_worlds_tab"))
                     .displayItems((displayParameters, output) -> {
                         output.accept(ModItems.MARMOT_SPAWN_EGG.get());
                         output.accept(ModItems.HYRAX_SPAWN_EGG.get());
+                        output.accept(ModItems.LIEMOND.get());
                     })
                     .build());
 
