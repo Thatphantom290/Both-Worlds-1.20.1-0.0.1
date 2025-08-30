@@ -808,7 +808,25 @@
 					}
 				}
 			}
-		}
-	},
+		},
+        "hyrax_angry": {
+          "loop": false,
+          "animation_length": 1.5,
+          "bones": {
+            "witch": {
+              "position": {
+                "0.0": [0, 0, 0]
+              }
+            }
+          },
+          "sound_effects": {},
+          "particle_effects": {
+            "0.5": {
+              "effect": "body_particles"
+            }
+          }
+        }
+
+    },
 	"geckolib_format_version": 2
 }

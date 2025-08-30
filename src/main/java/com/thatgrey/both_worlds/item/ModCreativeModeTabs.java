@@ -20,6 +20,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.both_worlds_tab"))
                     .displayItems((displayParameters, output) -> {
                         output.accept(ModItems.MARMOT_SPAWN_EGG.get());
+                        output.accept(ModItems.HYRAX_SPAWN_EGG.get());
                     })
                     .build());
 

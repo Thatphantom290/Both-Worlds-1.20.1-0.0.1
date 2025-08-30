@@ -11,8 +11,11 @@ import com.thatgrey.both_worlds.Both_Worlds;
 public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Both_Worlds.MODID);
 
+    public static final RegistryObject<SoundEvent> HYRAX_ANGRY = registerSound("hyrax_angry");
+
     public static final RegistryObject<SoundEvent> MARMOT_IDLE = registerSound("marmot_idle");
     public static final RegistryObject<SoundEvent> MARMOT_HURT1 = registerSound("marmot_hurt1");
+    public static final RegistryObject<SoundEvent> MARMOT_HURT2 = registerSound("marmot_hurt2");
     public static final RegistryObject<SoundEvent> MARMOT_HAPPY = registerSound("marmot_happy");
     public static final RegistryObject<SoundEvent> MARMOT_DEATH = registerSound("marmot_death");
 

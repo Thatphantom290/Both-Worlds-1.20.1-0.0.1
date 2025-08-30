@@ -1,11 +1,15 @@
 package com.thatgrey.both_worlds.entity.custom;
 
 import com.thatgrey.both_worlds.entity.ModEntities;
+import com.thatgrey.both_worlds.sound.ModSounds;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -19,13 +23,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import software.bernie.geckolib.core.animation.*;
 
 public class HyraxEntity extends Animal implements GeoEntity, Sittable {
 
@@ -74,10 +80,7 @@ public class HyraxEntity extends Animal implements GeoEntity, Sittable {
     }
 
     public enum Variant {
-        BROWN(0),
-        BEIGE(1),
-        GREY(2);
-
+        BROWN(0), BEIGE(1), GREY(2);
         private final int id;
         Variant(int id) { this.id = id; }
         public int getId() { return id; }
@@ -90,15 +93,12 @@ public class HyraxEntity extends Animal implements GeoEntity, Sittable {
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
                                         MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
-        // Se já tem NBT salvo, recupera
         if (dataTag != null && dataTag.contains("Variant")) {
             this.setVariant(dataTag.getInt("Variant"));
         } else {
-            // Se não tiver, sorteia uma nova
             int randomVariant = this.random.nextInt(Variant.values().length);
             this.setVariant(randomVariant);
         }
-
         return super.finalizeSpawn(world, difficulty, reason, spawnData, dataTag);
     }
 
@@ -119,14 +119,29 @@ public class HyraxEntity extends Animal implements GeoEntity, Sittable {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 5, event -> {
-            if (isSitting()) return event.setAndContinue(RawAnimation.begin().then("hyrax_sit", Animation.LoopType.LOOP));
-            if (event.isMoving()) return event.setAndContinue(RawAnimation.begin().then("hyrax_walk", Animation.LoopType.LOOP));
+            if (isSitting()) {
+                return event.setAndContinue(RawAnimation.begin().then("hyrax_sit", Animation.LoopType.LOOP));
+            }
+            if (event.isMoving()) {
+                return event.setAndContinue(RawAnimation.begin().then("hyrax_walk", Animation.LoopType.LOOP));
+            }
             return event.setAndContinue(RawAnimation.begin().then("hyrax_idle", Animation.LoopType.LOOP));
         }));
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() { return this.cache; }
+
+    public class ModEntitySpawn {
+        public static void registerSpawnPlacements() {
+            SpawnPlacements.register(
+                    ModEntities.HYRAX.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    HyraxEntity::checkHyraxSpawn
+            );
+        }
+    }
 
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob partner) {
@@ -161,5 +176,23 @@ public class HyraxEntity extends Animal implements GeoEntity, Sittable {
             return EntityDimensions.scalable(original.width * 0.12F, original.height * 0.12F);
         }
         return original;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() { return ModSounds.HYRAX_ANGRY.get(); }
+
+    @Override
+    public int getAmbientSoundInterval() {
+        return 400;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+    }
+
+    public static boolean checkHyraxSpawn(EntityType<HyraxEntity> entity, LevelAccessor level,
+                                          MobSpawnType reason, BlockPos pos, RandomSource random) {
+        return Animal.checkAnimalSpawnRules(entity, level, reason, pos, random);
     }
 }

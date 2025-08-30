@@ -1,0 +1,73 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "leg_1",
+					"pivot": [-3.5, 4, -3.5],
+					"cubes": [
+						{"origin": [-6, 0, -6], "size": [5, 4, 5], "uv": [0, 32]}
+					]
+				},
+				{
+					"name": "leg_2",
+					"pivot": [3.5, 4, -3.5],
+					"cubes": [
+						{"origin": [1, 0, -6], "size": [5, 4, 5], "uv": [20, 32]}
+					]
+				},
+				{
+					"name": "leg_3",
+					"pivot": [3.5, 4, 3.5],
+					"cubes": [
+						{"origin": [1, 0, 1], "size": [5, 4, 5], "uv": [40, 32]}
+					]
+				},
+				{
+					"name": "leg_4",
+					"pivot": [-3.5, 4, 2.5],
+					"cubes": [
+						{"origin": [-6, 0, 1], "size": [5, 4, 5], "uv": [0, 41]}
+					]
+				},
+				{
+					"name": "body_1",
+					"pivot": [0, 10, 0]
+				},
+				{
+					"name": "body_2",
+					"parent": "body_1",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-8, 4, -8], "size": [16, 16, 16], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "faceless",
+					"parent": "body_2",
+					"pivot": [0, 0, 1],
+					"cubes": [
+						{"origin": [-8, 4, -7.01], "size": [16, 16, 0], "uv": [16, 0]}
+					]
+				},
+				{
+					"name": "midlestaged_face",
+					"parent": "body_2",
+					"pivot": [-7, 4, -7.1],
+					"cubes": [
+						{"origin": [-8, 4, -8.02], "size": [16, 16, 0], "uv": [32, 48]}
+					]
+				}
+			]
+		}
+	]
+}

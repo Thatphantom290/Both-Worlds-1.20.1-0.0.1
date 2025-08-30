@@ -7,7 +7,7 @@ modId="both_worlds"
 version="1.20.1-0.0.1"
 displayName="Both Worlds"
 description='''I present you... *drums* Both Worlds!!! This mod adds new mobs and animals in wave themed updates'''
-logoFile="assets/both_worlds/modicon"
+logo="assets/both_worlds/textures/gui/mod_icon.png"
 authors="thatgrey/phantomguy, blob, trafficone, pikmin, oregano and slime."
 
 [[dependencies.both_worlds]]

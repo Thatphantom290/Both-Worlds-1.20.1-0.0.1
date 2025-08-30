@@ -70,12 +70,14 @@ public class MarmotModel extends GeoModel<MarmotEntity> {
                 body.setScaleY(0.5F);
                 body.setScaleZ(0.5F);
                 body.setPosY(-1.0F);
+                body.setPosZ(5.0F);
             }
             if (head != null) {
                 head.setScaleX(1.5F);
                 head.setScaleY(1.5F);
                 head.setScaleZ(1.5F);
                 head.setPosY(-1.0F);
+                head.setPosZ(0.0F);
             }
         } else {
             if (body != null) {

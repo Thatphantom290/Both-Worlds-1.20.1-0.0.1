@@ -33,7 +33,9 @@ public class Both_Worlds {
 
         ModCreativeModeTabs.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+
         ModEntities.register(modEventBus);
+
         ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

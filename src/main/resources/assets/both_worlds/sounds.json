@@ -1,23 +1,37 @@
 {
-  "marmot_death": {
+  "hyrax_angry": {
     "sounds": [
-      "littlemarmots:marmot_death"
+      "both_worlds:hyrax/hyrax_angry"
     ]
   },
-  "marmot_hurt": {
-    "sounds": [
-      "littlemarmots:marmot_hurt1",
-      "littlemarmots:marmot_hurt2"
-    ]
-  },
-  "marmot_happy": {
-    "sounds": [
-      "littlemarmots:marmot_happy"
-    ]
-  },
+
   "marmot_idle": {
     "sounds": [
-      "littlemarmots:marmot_idle"
+      "both_worlds:marmot/marmot_idle"
+    ]
+  },
+
+  "marmot_hurt1": {
+    "sounds": [
+      "both_worlds:marmot/marmot_hurt1"
+    ]
+  },
+
+  "marmot_hurt2": {
+    "sounds": [
+      "both_worlds:marmot/marmot_hurt2"
+    ]
+  },
+
+  "marmot_happy": {
+    "sounds": [
+      "both_worlds:marmot/marmot_happy"
+    ]
+  },
+
+  "marmot_death": {
+    "sounds": [
+      "both_worlds:marmot/marmot_death"
     ]
   }
 }

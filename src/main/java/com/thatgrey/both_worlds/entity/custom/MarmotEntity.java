@@ -58,10 +58,10 @@ public class MarmotEntity extends Animal implements GeoEntity, Sittable {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new PanicGoal(this, 0.45D));
+        this.goalSelector.addGoal(0, new PanicGoal(this, 0.85D));
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.150D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.5D, Ingredient.of(Items.HANGING_ROOTS), false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, Ingredient.of(Items.HANGING_ROOTS), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 0.6D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.25D));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
