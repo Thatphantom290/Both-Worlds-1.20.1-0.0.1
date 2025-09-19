@@ -1,12 +1,19 @@
 package com.thatgrey.both_worlds.entity.custom;
 
+import com.thatgrey.both_worlds.entity.ModEntities;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -60,5 +67,20 @@ public class DiemondEntity extends Monster implements GeoAnimatable {
 
     protected boolean shouldDropLoot() {
         return true;
+    }
+
+    public class ModEntitySpawn {
+        public static void registerSpawnPlacements() {
+            SpawnPlacements.register(
+                    ModEntities.DIEMOND.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    DiemondEntity::checkDiemondSpawn
+            );
+        }
+    }
+
+    private static boolean checkDiemondSpawn(EntityType<DiemondEntity> diemondEntityEntityType, ServerLevelAccessor serverLevelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
+        return false;
     }
 }
