@@ -10,5 +10,9 @@ public class ModAnimations {
     public static final RawAnimation HYRAX_WALK = RawAnimation.begin().thenLoop("hyrax_walk");
     public static final RawAnimation HYRAX_IDLE = RawAnimation.begin().thenLoop("hyrax_idle");
     public static final RawAnimation HYRAX_SIT = RawAnimation.begin().thenLoop("hyrax_sit");
+
+    public static final RawAnimation DIEMOND_WALK = RawAnimation.begin().thenLoop("diemond_walk");
+    public static final RawAnimation DIEMOND_IDLE = RawAnimation.begin().thenLoop("diemond_idle");
+
 }
 

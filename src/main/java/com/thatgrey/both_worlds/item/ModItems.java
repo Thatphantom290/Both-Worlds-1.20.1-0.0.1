@@ -2,8 +2,6 @@ package com.thatgrey.both_worlds.item;
 
 import com.thatgrey.both_worlds.Both_Worlds;
 import com.thatgrey.both_worlds.entity.ModEntities;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,6 +20,11 @@ public class ModItems {
     public static final RegistryObject<Item> MARMOT_SPAWN_EGG =
             ITEMS.register("marmot_spawn_egg",
                     () -> new ForgeSpawnEggItem(ModEntities.MARMOT, 0x62422d, 0x9f7962,
+                            new Item.Properties()));
+
+    public static final RegistryObject<Item> DIEMOND_SPAWN_EGG =
+            ITEMS.register("diemond_spawn_egg",
+                    () -> new ForgeSpawnEggItem(ModEntities.DIEMOND, 0x7f7f7f, 0x8dadb1,
                             new Item.Properties()));
 
     public static final RegistryObject<Item> LIEMOND = ITEMS.register("liemond",

@@ -1,6 +1,7 @@
 package com.thatgrey.both_worlds.entity;
 
 import com.thatgrey.both_worlds.Both_Worlds;
+import com.thatgrey.both_worlds.entity.custom.DiemondEntity;
 import com.thatgrey.both_worlds.entity.custom.HyraxEntity;
 import com.thatgrey.both_worlds.entity.custom.MarmotEntity;
 import net.minecraft.resources.ResourceLocation;
@@ -20,6 +21,12 @@ public class ModEntities {
                     () -> EntityType.Builder.of(HyraxEntity::new, MobCategory.CREATURE)
                             .sized(0.6f, 0.7f)
                             .build(new ResourceLocation(Both_Worlds.MODID, "hyrax").toString()));
+
+    public static final RegistryObject<EntityType<DiemondEntity>> DIEMOND =
+            ENTITIES.register("diemond",
+                    () -> EntityType.Builder.of(DiemondEntity::new, MobCategory.CREATURE)
+                            .sized(1f, 1f)
+                            .build(new ResourceLocation(Both_Worlds.MODID, "diemond").toString()));
 
     public static final RegistryObject<EntityType<MarmotEntity>> MARMOT =
             ENTITIES.register("marmot",

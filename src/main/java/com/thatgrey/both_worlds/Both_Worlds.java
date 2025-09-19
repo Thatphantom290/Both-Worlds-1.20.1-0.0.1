@@ -1,6 +1,7 @@
 package com.thatgrey.both_worlds;
 
 import com.mojang.logging.LogUtils;
+import com.thatgrey.both_worlds.block.ModBlocks;
 import com.thatgrey.both_worlds.entity.ModEntities;
 import com.thatgrey.both_worlds.entity.client.MarmotRenderer;
 import com.thatgrey.both_worlds.item.ModCreativeModeTabs;
@@ -33,6 +34,7 @@ public class Both_Worlds {
 
         ModCreativeModeTabs.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         ModEntities.register(modEventBus);
 
